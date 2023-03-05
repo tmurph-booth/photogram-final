@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <h1>
+      <%= @the_user.username %> 
+    </h1>
+
+    <dl>
+      <dt>
+        Private
+      </dt>
+      <dd>
+        <%= !@the_user.private.zero? %>
+      </dd>
+      <dt>
+        Followers
+      </dt>
+      <dd>
+        <%= @the_user.accepted_received_follow_requests.count %>
+        <!-- need the follow button here-->
+      </dd>
+      <dt>
+        Following
+      </dt>
+      <dd>
+        <%= @the_user.accepted_sent_follow_requests.count %>
+      </dd>
+    </dl>
+    <ul>
+      <li><a href="/users/<%= @the_user.username %>">Profile</a></li>
+      <li>Liked photos</li>
+      <li>Feed</li>
+      <li>Discover</li>
+    </ul>
+  </div>
+</div>

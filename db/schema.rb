@@ -10,6 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_03_05_192856) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "photo_id"
+    t.text "body"
+    t.integer "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "follow_requests", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "fan_id"
+    t.integer "photo_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "caption"
+    t.string "image"
+    t.integer "owner_id"
+    t.integer "likes_count"
+    t.integer "comments_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'bool' for column 'private'
 
 end
