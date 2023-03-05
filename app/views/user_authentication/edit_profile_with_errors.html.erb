@@ -33,7 +33,7 @@
       </div>
       <div>
         <label for="username_box">Username</label>
-        <input id="password_box" name="query_username" placeholder="" type="text" value="<%= User.where({:id => session[:user_id]}).at(0).username %>">
+        <input id="username_box" name="query_username" placeholder="" type="text" value="<%= User.where({:id => session[:user_id]}).at(0).username %>">
       </div>
 
       <div>

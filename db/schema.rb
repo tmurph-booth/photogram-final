@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_05_192856) do
+ActiveRecord::Schema.define(version: 2023_03_05_211531) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "photo_id"
@@ -45,7 +45,17 @@ ActiveRecord::Schema.define(version: 2023_03_05_192856) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'bool' for column 'private'
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "private"
+    t.string "username"
+    t.integer "likes_count"
+    t.integer "comments_count"
+  end
 
 end
